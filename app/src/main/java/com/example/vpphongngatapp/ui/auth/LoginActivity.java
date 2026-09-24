@@ -52,17 +52,14 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
 
-            // Perform login action (mock success for now)
             Toast.makeText(this, "Đăng nhập thành công!", Toast.LENGTH_SHORT).show();
             
-            // Navigate to HomeActivity
             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
             startActivity(intent);
             finish();
         });
 
         btnRegister.setOnClickListener(v -> {
-            // Navigate to RegisterActivity
             Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
             startActivity(intent);
         });

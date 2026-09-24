@@ -26,12 +26,10 @@ public class SplashActivity extends AppCompatActivity {
         ivSplashLogo = findViewById(R.id.ivSplashLogo);
         vOrangeBackground = findViewById(R.id.vOrangeBackground);
 
-        // Initial scale for logo entrance
         ivSplashLogo.setScaleX(0.5f);
         ivSplashLogo.setScaleY(0.5f);
         ivSplashLogo.setAlpha(0f);
 
-        // Animate logo entrance
         ivSplashLogo.animate()
                 .scaleX(1.0f)
                 .scaleY(1.0f)
@@ -42,12 +40,10 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void startExpandingAnimation() {
-        // Wait a brief moment after logo appears, then expand the orange background
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             vOrangeBackground.setScaleX(1f);
             vOrangeBackground.setScaleY(1f);
 
-            // Calculate scale factor needed to cover the entire screen from center
             float maxDimension = Math.max(getResources().getDisplayMetrics().widthPixels,
                     getResources().getDisplayMetrics().heightPixels);
             float scaleFactor = (maxDimension / vOrangeBackground.getWidth()) * 2.5f;
@@ -59,7 +55,6 @@ public class SplashActivity extends AppCompatActivity {
                     .setListener(new AnimatorListenerAdapter() {
                         @Override
                         public void onAnimationEnd(Animator animation) {
-                            // Navigate to LoginActivity
                             Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
                             startActivity(intent);
                             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
